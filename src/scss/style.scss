@@ -1,0 +1,624 @@
+@import "vars";
+@import "reset";
+@import "global";
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  &__inner {
+    height: 144px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    padding: 6px 0;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    &--underline {
+      border-bottom: 2px solid $main-color;
+    }
+  }
+
+  &__socials {
+    width: 176px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.hero {
+  position: relative;
+  z-index: 5;
+  height: 100vh;
+  padding-top: 160px;
+  background: url("../img/hero-bg-1920.jpg") center center no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-transform: uppercase;
+
+  &__inner {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-size: 75px;
+    font-weight: 600;
+    line-height: 90px;
+    letter-spacing: -4px;
+  }
+
+  &__subtitle {
+    max-width: 592px;
+    margin: 0 auto;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  &__btn {
+    margin: 10vh auto 0;
+  }
+}
+
+.what-harper {
+  padding: 64px 0;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 488px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__description {
+    padding-bottom: 32px;
+    border-bottom: 2px solid $main-color;
+    color: $black-color;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &__stats {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    gap: 32px 0;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: calc(50% + 8px);
+      left: 16px;
+      width: calc(100% - 32px);
+      height: 2px;
+      background-color: $main-color;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 16px;
+      right: calc(50% + 16px);
+      width: 2px;
+      height: calc(100% - 32px);
+      background-color: $main-color;
+    }
+  }
+
+  &__stats-item {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__stats-icon {
+    width: 48px;
+    height: 48;
+  }
+
+  &__stats-text {
+    max-width: 109px;
+    color: $black-color;
+    line-height: 20px;
+  }
+
+  &__interactive {
+    position: absolute;
+    width: 696px;
+    height: 658px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(488px + 32px);
+  }
+
+  &__hotspot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &.active .what-harper__tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) scale(1);
+    }
+
+    &.active .what-harper__plus {
+      background-color: $main-color;
+      transform: rotate(135deg);
+    }
+
+    &.active .what-harper__plus::before {
+      content: "";
+    }
+  }
+
+  &__plus {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $accent-color;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+
+    &::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/what-harper/plus.svg);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    width: 280px;
+    padding: 26px 31px;
+    border-radius: 4px;
+    background: $secondary-color;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(0.9);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      width: 30px;
+      height: 30px;
+      background-color: $secondary-color;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+}
+
+.what-harper-do {
+  padding: 64px 0;
+  background-color: #eeeefa;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    margin-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+  }
+
+  &__box {
+    width: 280px;
+    border-radius: 10px;
+    background-color: $main-color;
+  }
+
+  &__box-title {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    border-radius: 10px 10px 0 0;
+    background-color: $secondary-color;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__box-list {
+    padding: 32px 16px 32px 32px;
+    display: flex;
+    flex-direction: column;
+
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    list-style-type: disc;
+  }
+
+  &__description {
+    color: $black-color;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  &__btn {
+    margin: 16px auto 0;
+  }
+}
+
+.how-harper-work {
+  padding: 64px 0;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__steps {
+    position: relative;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 36%;
+      left: 25%;
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/how-harper-work/arrow.svg);
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -64%;
+      left: 60%;
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/how-harper-work/arrow.svg);
+      background-repeat: no-repeat;
+      transform: scaleX(-1) rotate(180deg);
+      z-index: -1;
+    }
+  }
+
+  &__step {
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: $black-color;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+.feedback {
+  padding: 64px 0;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__wrapper {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  &__swiper {
+    max-width: 700px;
+    margin-left: auto;
+  }
+
+  &__testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 32px 64px 16px;
+    border-radius: 10px;
+    background-color: $main-color;
+  }
+
+  &__testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__testimonial-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__testimonial-person {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  &__testimonial-main {
+    color: #fff;
+    line-height: 20px;
+  }
+
+  &__description {
+    color: $black-color;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 488px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 105px;
+      height: 105px;
+      background-image: url(../img/feedback/play-video.svg);
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+  }
+
+  &__btn {
+    margin: 32px auto 0;
+  }
+}
+
+.swiper-pagination {
+  left: 36% !important;
+  bottom: 17px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.feedback__swiper .swiper-button-next,
+.feedback__swiper .swiper-button-prev {
+  position: absolute;
+  top: calc(100% - 24px);
+  width: 32px;
+  height: 32px;
+  color: white;
+  z-index: 1000;
+}
+
+.feedback__swiper .swiper-button-next {
+  right: 32px;
+}
+
+.feedback__swiper .swiper-button-prev {
+  left: 76.5%;
+}
+
+.feedback__swiper .swiper-button-next::after,
+.feedback__swiper .swiper-button-prev::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  padding: 5px;
+}
+
+.feedback__swiper .swiper-button-next::after {
+  transform: rotate(-45deg);
+}
+
+.feedback__swiper .swiper-button-prev::after {
+  transform: rotate(135deg);
+}
+
+.faq {
+  padding: 64px 0;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+}
+
+.accordion {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+  padding: 80px 64px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  &__item {
+    padding-bottom: 18px;
+    border-bottom: 2px solid $main-color;
+  }
+
+  &__question {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 16px;
+    color: $black-color;
+    font-size: 26px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      background-image: url(../img/arrow-up.svg);
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    color: $black-color;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.accordion__item input {
+  display: none;
+}
+
+.accordion__item input:checked ~ .accordion__answer {
+  max-height: 500px;
+}
+
+.accordion__item input:checked ~ .accordion__question::after {
+  transform: rotate(360deg);
+}
+
+.cta {
+  padding: 64px 0;
+  background-color: #eeeefa;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__img {
+    border-radius: 10px;
+  }
+
+  &__content {
+    max-width: 700px;
+  }
+
+  &__subtitle {
+    margin-bottom: 8px;
+    color: $black-color;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  &__description {
+    margin-bottom: 16px;
+    color: $black-color;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &__tip {
+    color: $black-color;
+    line-height: 20px;
+  }
+
+  &__btn {
+    margin: 8px;
+  }
+}
+
+.footer {
+  position: relative;
+  min-height: 144px;
+  background-color: $black-color;
+
+  &__links {
+    padding: 144px 0 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    color: #737380;
+    line-height: 20px;
+    cursor: pointer;
+  }
+}
