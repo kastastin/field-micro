@@ -16,6 +16,10 @@
     align-items: center;
   }
 
+  &__logo {
+    margin-top: -10px;
+  }
+
   &__list {
     display: flex;
     gap: 16px;
@@ -38,6 +42,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .burger-btn {
+    display: none;
   }
 }
 
@@ -513,7 +521,7 @@
   &__question {
     position: relative;
     display: inline-block;
-    width: 100%;
+    width: calc(100% - 40px);
     padding-bottom: 16px;
     color: $black-color;
     font-size: 26px;
@@ -525,7 +533,7 @@
       content: "";
       position: absolute;
       top: 0;
-      right: 0;
+      right: -40px;
       width: 32px;
       height: 32px;
       background-image: url(../img/arrow-up.svg);
@@ -601,7 +609,7 @@
   }
 
   &__btn {
-    margin: 8px;
+    margin-top: 8px;
   }
 }
 
@@ -620,5 +628,370 @@
     color: #737380;
     line-height: 20px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 1260px) {
+  .feedback {
+    &__wrapper {
+      gap: 380px;
+      margin-right: auto;
+    }
+
+    &__video {
+      top: 230px;
+      left: calc(50%);
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &__list {
+      gap: 12px;
+    }
+
+    &__link--underline {
+      display: none;
+    }
+  }
+
+  .what-harper {
+    &__content {
+      gap: 670px;
+      margin: 0 auto;
+    }
+
+    &__interactive {
+      left: -20%;
+      top: 55%;
+    }
+  }
+
+  .how-harper-work {
+    &__step,
+    &__step-text {
+      max-width: 190px;
+    }
+
+    &__steps {
+      justify-content: center;
+      align-items: stretch;
+      gap: 44px;
+
+      &::before {
+        top: 16%;
+        left: 14%;
+        transform: scale(0.8);
+      }
+
+      &::after {
+        top: -69%;
+        left: 46%;
+        transform: scaleX(-1) rotate(180deg) scale(0.8);
+      }
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  .footer .header__inner {
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .footer__links {
+    padding: 250px 0 32px;
+  }
+
+  .heaader--main .header__list,
+  .heaader--main .header__socials {
+    display: none;
+  }
+
+  .heaader--main .burger-btn {
+    position: relative;
+    width: 48px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 10;
+
+    span {
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 4px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+  }
+
+  .heaader--main.active .burger-btn span:nth-child(1) {
+    transform: translateY(14px) rotate(45deg);
+  }
+
+  .heaader--main.active .burger-btn span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .heaader--main.active .burger-btn span:nth-child(3) {
+    transform: translateY(-14px) rotate(-45deg);
+  }
+
+  .heaader--main.active .header__inner {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: $black-color;
+  }
+
+  .heaader--main.active .header__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding: 16px;
+    background-color: $black-color;
+  }
+
+  .heaader--main.active .header__socials {
+    position: absolute;
+    top: calc(100% + 220px);
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 0 24px;
+    border-radius: 0 0 10px 10px;
+    background-color: $black-color;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .feedback__swiper {
+    max-width: 400px;
+  }
+
+  .swiper-pagination {
+    bottom: 22px;
+  }
+
+  .feedback__swiper .swiper-button-next,
+  .feedback__swiper .swiper-button-prev {
+    top: calc(100% - 29px);
+  }
+
+  .swiper-pagination {
+    left: 30% !important;
+  }
+
+  .feedback__swiper .swiper-button-next {
+    right: 20px;
+  }
+
+  .feedback__swiper .swiper-button-prev {
+    left: 65%;
+  }
+
+  .feedback__swiper .swiper-button-next::after,
+  .feedback__swiper .swiper-button-prev::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    padding: 5px;
+  }
+
+  .feedback__video {
+    top: 290px;
+  }
+
+  .cta__inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cta__content {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 660px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .hero {
+    &__title {
+      margin-bottom: 32px;
+      font-size: 40px;
+      line-height: 50px;
+      letter-spacing: -2px;
+    }
+
+    &__subtitle {
+      max-width: 360px;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+  }
+
+  .what-harper {
+    &__description {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    &__interactive {
+      width: 356px;
+      height: 337px;
+      left: 50%;
+      top: 37vh;
+      transform: translateX(-50%);
+    }
+
+    &__content {
+      gap: 350px;
+      margin: 0 auto;
+    }
+  }
+
+  .how-harper-work__steps {
+    flex-direction: column;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .how-harper-work__step {
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .how-harper-work__step-img {
+    width: 165px;
+    height: 165px;
+  }
+
+  .how-harper-work__step-text {
+    font-size: 20px;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .accordion {
+    padding: 60px 44px;
+  }
+}
+
+@media (max-width: 475px) {
+  .what-harper {
+    &__interactive {
+      top: 43vh;
+    }
+
+    &__content {
+      gap: 330px;
+    }
+
+    &__stats-text {
+      font-size: 14px;
+      max-width: 100%;
+    }
+
+    &__stats-item {
+      width: 100%;
+    }
+
+    &__stats::before,
+    &__stats::after {
+      display: none;
+    }
+  }
+
+  .feedback__swiper {
+    max-width: 333px;
+  }
+
+  .swiper-pagination {
+    bottom: 18px;
+  }
+
+  .feedback__swiper .swiper-button-next,
+  .feedback__swiper .swiper-button-prev {
+    top: calc(100% - 25px);
+  }
+
+  .swiper-pagination {
+    left: 27% !important;
+  }
+
+  .feedback__swiper .swiper-button-next {
+    right: 20px;
+  }
+
+  .feedback__swiper .swiper-button-prev {
+    left: 60%;
+  }
+
+  .feedback__video {
+    top: 310px;
+  }
+
+  .cta__content {
+    max-width: 100%;
+  }
+
+  .footer .header__inner {
+    margin-top: 50px;
+  }
+
+  .footer__links {
+    padding: 400px 0 32px;
+  }
+
+  .footer .header__list {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 390px) {
+  .how-harper-work__steps {
+    &::before,
+    &::after {
+      display: block;
+    }
+
+    &::before {
+      top: 38%;
+      left: -80%;
+      transform: scale(0.8) rotate(70deg);
+    }
+
+    &::after {
+      top: -5%;
+      left: 45%;
+      transform: scaleX(-1) rotate(90deg) scale(0.8);
+    }
   }
 }

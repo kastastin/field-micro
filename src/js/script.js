@@ -50,3 +50,11 @@ const swiper = new Swiper(".feedback__swiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+// <-- Menu Burger -->
+const burger = document.querySelector(".burger-btn");
+const header = document.querySelector(".heaader--main");
+
+burger.addEventListener("click", () => {
+  header.classList.toggle("active");
+});
